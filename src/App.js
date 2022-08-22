@@ -1,23 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './main.scss';
+
+import Search from './components/search/search.js';
+// import CurrentWeather from './components/current-weather/current-weather.js';
+import CurrentWeather2 from './components/current-weather/current-weather-2.js';
+import Forecast from './components/forecast/forecast.js';
+// import BurgerMenu from './components/burger-menu.js';
+// import BasicExample from './components/bootstrap-components/navbar.js'
 
 function App() {
+  const [currentWeather, setCurrentWeather] = useState(null);
+  const [forecast, setForecast] = useState(null);
+
+  const handleOnSearchChange = async (searchData) => {
+    try {
+      const response = await fetch(`http://localhost:8000/weather`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(searchData),
+      });
+      const data = await response.json();
+      setCurrentWeather(data[0]);
+      setForecast(data[1]);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <section>
+        <div className='nav'>
+          <p className='title'>
+            <a href='/#' alt='skysearch'>
+              SkySearch
+            </a>
+          </p>
+          <Search onSearchChange={handleOnSearchChange} />
+          <img src='./images/menu.svg' alt='burger' className='menu-btn' />
+          {/* <BurgerMenu /> */}
+        </div>
+        {/* {currentWeather && <CurrentWeather data={currentWeather} />} */}
+        {currentWeather && <CurrentWeather2 data={currentWeather} />}
+        {forecast && <Forecast data={forecast} />}
+      </section>
+      {/* <img src="/images/mountains.jpg" /> */}
+
+      {/* <BasicExample handleOnSearchChange={handleOnSearchChange}/> */}
+      {/* <Search onSearchChange={handleOnSearchChange} />
+      {currentWeather && <CurrentWeather data={currentWeather} />}
+      {forecast && <Forecast data={forecast} />} */}
     </div>
   );
 }
