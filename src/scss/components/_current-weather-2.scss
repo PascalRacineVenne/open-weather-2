@@ -1,13 +1,10 @@
 .weather {
-  width: 300px;
+  width: 200px;
   border-radius: 0.5rem;
   box-shadow: 10px -2px 20px -2px rgba(0, 0, 0, 0.3);
   color: white;
-  // background: rgb(255, 255, 255);
-  // opacity: 0.2;
   position: relative;
-  margin: 1.125rem auto 0 auto;
-  padding: 1rem;
+  margin: 1.125rem auto 1.125rem auto;
 }
 .weather::before {
   content: '';
@@ -17,38 +14,24 @@
   width: 100%;
   height: 100%;
   border-radius: 0.5rem;
-  background: rgb(255, 255, 255);
-  opacity: 0.2;
-  // background-image: url(graphic-to-be-filtered.jpg);
-  // background: #15042e url('../../images/sunset.jpg') no-repeat center;
-  // background-size: cover;
-  // background-blend-mode: screen;
+  background: rgba(255, 255, 255, 0.2);
 }
 
-.top,
-.bottom {
+.top {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
 }
 
-.city {
-  font-weight: 600;
-  font-size: 1.125rem;
-  line-height: 91.6%;
-  margin: 0;
-  letter-spacing: 1px;
-}
-
 .weather-description {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 0, 875rem;
   line-height: 91.6%;
   margin: 0;
 }
 
 .weather-icon {
-  width: 100px;
+  width: 80px;
 }
 
 .temperature {
@@ -56,34 +39,38 @@
   font-size: 4rem;
   width: auto;
   letter-spacing: -5px;
-  margin: 10px 0;
+  margin: 0.5rem 0;
+}
+
+.real-feel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .real-feel-label {
+    padding-right: 0.5rem;
+    font-size: 0.875rem;
+  }
+  .real-feel-value {
+    font-size: 0.875rem;
+  }
 }
 
 .details {
   width: 100%;
-  padding-left: 1.5rem;
+  padding: 0.5rem;
+  .details-box {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .parameter-row {
   display: flex;
-  justify-content: space-between;
-}
-
-.parameter-label {
-  text-align: left;
-  font-weight: 400;
-  font-size: 0.75rem;
-}
-
-.parameter-value {
-  text-align: right;
-  font-weight: 600;
-  font-size: 0.75rem;
-}
-
-.details-box {
-  border: 1px solid rgb(87, 87, 87);
-  border-radius: 0.25rem;
-  padding: 0.25rem;
-  margin-top: 0.25rem;
+  padding: 0.5rem;
+  .parameter-value {
+    text-align: right;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding-left: 0.5rem;
+  }
 }

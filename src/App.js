@@ -5,8 +5,7 @@ import Search from './components/search/search.js';
 // import CurrentWeather from './components/current-weather/current-weather.js';
 import CurrentWeather2 from './components/current-weather/current-weather-2.js';
 import Forecast from './components/forecast/forecast.js';
-// import BurgerMenu from './components/burger-menu.js';
-// import BasicExample from './components/bootstrap-components/navbar.js'
+import BurgerMenu from './components/burger-menu.js';
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -38,20 +37,14 @@ function App() {
               SkySearch
             </a>
           </p>
-          <Search onSearchChange={handleOnSearchChange} />
-          <img src='./images/menu.svg' alt='burger' className='menu-btn' />
-          {/* <BurgerMenu /> */}
+          <BurgerMenu />
         </div>
+        <Search onSearchChange={handleOnSearchChange} />
+        {/* <img src='./images/menu.svg' alt='burger' className='menu-btn' /> */}
         {/* {currentWeather && <CurrentWeather data={currentWeather} />} */}
         {currentWeather && <CurrentWeather2 data={currentWeather} />}
         {forecast && <Forecast data={forecast} />}
       </section>
-      {/* <img src="/images/mountains.jpg" /> */}
-
-      {/* <BasicExample handleOnSearchChange={handleOnSearchChange}/> */}
-      {/* <Search onSearchChange={handleOnSearchChange} />
-      {currentWeather && <CurrentWeather data={currentWeather} />}
-      {forecast && <Forecast data={forecast} />} */}
     </div>
   );
 }

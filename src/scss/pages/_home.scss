@@ -1,8 +1,9 @@
 section {
-  background: #000000 url('../../images/sunset.jpg') no-repeat center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../../images/sunset.jpg') no-repeat center;
   background-size: cover;
-  background-blend-mode: screen;
+  background-blend-mode: darken;
   height: 96vh;
   padding: 1em;
-  border-radius: 13px;
+  border-radius: 12px;
 }

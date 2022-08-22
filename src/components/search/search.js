@@ -51,6 +51,7 @@ const Search = ({ onSearchChange }) => {
       height: 32,
       display: 'flex',
       padding: '0 1rem',
+      margin: '0 1rem',
     }),
     singleValue: (provided, state) => {
       const opacity = state.isDisabled ? 0.5 : 1;
