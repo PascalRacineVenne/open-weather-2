@@ -37,10 +37,11 @@ const Forecast2 = ({ data }) => {
             {/* <label htmlFor='' className='description'>
               {day.weather[0].description}
             </label> */}
-            <p className='min-max'>
-              {Math.round(day.main.temp_min)}°C /{Math.round(day.main.temp_max)}
-              °C
-            </p>
+            <div className='scale-temp'>
+              <p className='min-max'>{Math.round(day.main.temp_min)}°</p>
+              <div className='scale'></div>
+              <p className='min-max'>{Math.round(day.main.temp_max)}°</p>
+            </div>
             <div className='humid'>
               <img src={humid} alt='humidity' />
               <p>{day.main.humidity}%</p>
