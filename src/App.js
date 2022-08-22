@@ -4,7 +4,8 @@ import './main.scss';
 import Search from './components/search/search.js';
 // import CurrentWeather from './components/current-weather/current-weather.js';
 import CurrentWeather2 from './components/current-weather/current-weather-2.js';
-import Forecast from './components/forecast/forecast.js';
+// import Forecast from './components/forecast/forecast.js';
+import Forecast2 from './components/forecast/forecast-2.js';
 import BurgerMenu from './components/burger-menu.js';
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
         {/* <img src='./images/menu.svg' alt='burger' className='menu-btn' /> */}
         {/* {currentWeather && <CurrentWeather data={currentWeather} />} */}
         {currentWeather && <CurrentWeather2 data={currentWeather} />}
-        {forecast && <Forecast data={forecast} />}
+        {forecast && <Forecast2 data={forecast} />}
       </section>
     </div>
   );

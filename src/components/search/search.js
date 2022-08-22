@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AsyncPaginate, withAsyncPaginate } from 'react-select-async-paginate';
+import { AsyncPaginate } from 'react-select-async-paginate';
 
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
