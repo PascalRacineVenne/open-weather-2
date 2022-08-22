@@ -4,7 +4,7 @@ import { geoApiOptions } from '../src/Api/api.js';
 export const fetchGeo = async (query) => {
   try {
     const response = await fetch(
-      `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=1000000&namePrefix=${query.city}`,
+      `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=10000&namePrefix=${query.city}`,
       geoApiOptions
     );
     const responseJSON = await response.json();
