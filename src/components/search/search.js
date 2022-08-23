@@ -46,7 +46,6 @@ const Search = ({ onSearchChange }) => {
       color: '#fff',
     }),
     control: () => ({
-      // none of react-select's styles are passed to <Control />
       width: 'auto',
       height: 32,
       display: 'flex',

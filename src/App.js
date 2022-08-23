@@ -4,8 +4,8 @@ import './main.scss';
 import Search from './components/search/search.js';
 import CurrentWeather from './components/current-weather/current-weather.js';
 import Forecast from './components/forecast/forecast.js';
-// import Menu from './components/menu/menu.js';
 import Navbar from './components/navbar.js';
+import CurrentDetails from './components/current-weather/current-details.js';
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -31,17 +31,12 @@ function App() {
   return (
     <div className='container'>
       <section>
-        {/* <div className='nav'>
-          <p className='title'>
-            <a href='/#' alt='skysearch'>
-              SkySearch
-            </a>
-          </p>
-          <Menu />
-        </div> */}
         <Navbar />
         <Search onSearchChange={handleOnSearchChange} />
-        {currentWeather && <CurrentWeather data={currentWeather} />}
+        <div className='current'>
+          {currentWeather && <CurrentWeather data={currentWeather} />}
+          {currentWeather && <CurrentDetails data={currentWeather} />}
+        </div>
         {forecast && <Forecast data={forecast} />}
       </section>
     </div>

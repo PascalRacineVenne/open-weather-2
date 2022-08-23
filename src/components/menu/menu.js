@@ -21,16 +21,7 @@ const Menu = () => {
         />
         <ul>
           <li>
-            <a href='/#'>Made this project</a>
-          </li>
-          <li>
-            <a href='/#'>For fun with:</a>
-          </li>
-          <li>
-            <a href='/#'>React, Node & SASS</a>
-          </li>
-          <li>
-            <a href='/#'>Enjoy!!</a>
+            <a href='/#'>Enjoy</a>
           </li>
           <li>
             <a
@@ -40,7 +31,7 @@ const Menu = () => {
               target='_blank'
               className='active'
             >
-              Check my work
+              Website
             </a>
           </li>
           <li>

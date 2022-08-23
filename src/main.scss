@@ -1,24 +1,17 @@
 // Imports
-// @import '~bootstrap/scss/bootstrap';
-// @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
 @import './scss/abstracts/variables';
+@import './scss/abstracts/mixins';
 @import './scss/base/reset';
 @import './scss/base/fonts';
 @import './scss/components/current-weather';
-// @import './scss/components/current-weather-2';
+@import './scss/components/current-details';
 @import './scss/components/forecast';
-// @import './scss/components/forecast-2';
 @import './scss/components/menu';
 @import './scss/layouts/navigation';
 @import './scss/pages/home';
-// @import './scss/vendors/custom-bootstrap';
-
-// @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap');
 
 body {
-  // background: rgb(34,193,195);
-  // background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
   background-color: rgb(54, 54, 54);
   height: 100vh;
   background-attachment: fixed;

@@ -5,6 +5,10 @@
   color: white;
   position: relative;
   margin: 1.125rem auto 1.125rem auto;
+  @include devices(tablet) {
+    margin: 1.125rem 0;
+    box-shadow: unset;
+  }
 }
 .weather::before {
   content: '';
@@ -15,6 +19,9 @@
   height: 100%;
   border-radius: 0.5rem;
   background: rgba(255, 255, 255, 0.2);
+  @include devices(tablet) {
+    background: unset;
+  }
 }
 
 .top {

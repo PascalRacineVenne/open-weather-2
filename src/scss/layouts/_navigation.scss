@@ -16,6 +16,9 @@
   width: 28px;
   padding: 0.25rem 0.25rem 0 0;
   cursor: pointer;
+  @include devices(desktop) {
+    display: none;
+  }
 }
 .select {
   flex-grow: 1;

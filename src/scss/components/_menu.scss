@@ -8,6 +8,15 @@ nav {
   max-width: 300px;
   transform: translateX(-100%);
   transition: transform 0.3s;
+  @include devices(desktop) {
+    position: unset;
+    transform: translateX(0) !important;
+    border-radius: unset;
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+    height: 100%;
+    background: unset;
+  }
 }
 
 .show-menu {
@@ -18,6 +27,9 @@ nav ul {
   list-style: none;
   padding: 0;
   width: 100%;
+  @include devices(desktop) {
+    display: flex;
+  }
 }
 
 nav ul li {
@@ -30,18 +42,34 @@ nav ul li a {
   display: block;
   padding: 0.875em 5em 0.875em 4em;
   text-transform: uppercase;
+  @include devices(desktop) {
+    padding: 0 1rem;
+    border-bottom: rgba(255, 255, 255, 0.2);
+    font-family: 'Vollkorn SC';
+    text-transform: unset;
+  }
 }
 
 nav ul li a:hover {
   background: #413e47;
+  @include devices(desktop) {
+    background: unset;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
 }
 
 .active {
   background: rgba(255, 255, 255, 0.1);
+  @include devices(desktop) {
+    background: unset;
+  }
 }
 
 .active:hover {
   background: #413e47;
+  @include devices(desktop) {
+    background: unset;
+  }
 }
 
 .back-btn {
@@ -49,6 +77,9 @@ nav ul li a:hover {
   padding: 3em 4em 2em;
   cursor: pointer;
   transition: transform 0.3s;
+  @include devices(desktop) {
+    display: none;
+  }
 }
 
 .back-btn:hover {

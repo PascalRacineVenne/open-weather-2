@@ -7,3 +7,11 @@ section {
   padding: 1em;
   border-radius: 12px;
 }
+
+.current {
+  @include devices(tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
