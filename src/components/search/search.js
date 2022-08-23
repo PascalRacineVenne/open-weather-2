@@ -3,12 +3,23 @@ import { AsyncPaginate } from 'react-select-async-paginate';
 
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
+  // const [loadOptions, setLoadOptions] = useState('');
 
   const handleOnChange = (searchData) => {
     setSearch(searchData);
     onSearchChange(searchData);
   };
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const res = await fetch(`http://localhost:8000/search/${search}`);
+  //     const json = await res.json();
+  //     setLoadOptions(json.hits);
+  //   };
+  //   fetchData();
+  // }, [search]);
+
+  // console.log(loadOptions);
   // Try UseEffect to trigger the fetch on each keystroke
 
   const loadOptions = async (inputValue) => {
