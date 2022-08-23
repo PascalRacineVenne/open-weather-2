@@ -9,6 +9,8 @@ const Search = ({ onSearchChange }) => {
     onSearchChange(searchData);
   };
 
+  // Try UseEffect to trigger the fetch on each keystroke
+
   const loadOptions = async (inputValue) => {
     try {
       const response = await fetch(
