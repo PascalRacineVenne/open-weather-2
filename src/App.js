@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import './main.scss';
 
 import Search from './components/search/search.js';
-// import CurrentWeather from './components/current-weather/current-weather.js';
-import CurrentWeather2 from './components/current-weather/current-weather-2.js';
-// import Forecast from './components/forecast/forecast.js';
-import Forecast2 from './components/forecast/forecast-2.js';
-import BurgerMenu from './components/burger-menu.js';
+import CurrentWeather from './components/current-weather/current-weather.js';
+import Forecast from './components/forecast/forecast.js';
+// import Menu from './components/menu/menu.js';
+import Navbar from './components/navbar.js';
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -32,19 +31,18 @@ function App() {
   return (
     <div className='container'>
       <section>
-        <div className='nav'>
+        {/* <div className='nav'>
           <p className='title'>
             <a href='/#' alt='skysearch'>
               SkySearch
             </a>
           </p>
-          <BurgerMenu />
-        </div>
+          <Menu />
+        </div> */}
+        <Navbar />
         <Search onSearchChange={handleOnSearchChange} />
-        {/* <img src='./images/menu.svg' alt='burger' className='menu-btn' /> */}
-        {/* {currentWeather && <CurrentWeather data={currentWeather} />} */}
-        {currentWeather && <CurrentWeather2 data={currentWeather} />}
-        {forecast && <Forecast2 data={forecast} />}
+        {currentWeather && <CurrentWeather data={currentWeather} />}
+        {forecast && <Forecast data={forecast} />}
       </section>
     </div>
   );
