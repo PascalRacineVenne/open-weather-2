@@ -3,12 +3,14 @@ import { AsyncPaginate } from 'react-select-async-paginate';
 
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
-  // const [loadOptions, setLoadOptions] = useState('');
+  // const [options, setOptions] = useState(null);
 
   const handleOnChange = (searchData) => {
     setSearch(searchData);
     onSearchChange(searchData);
   };
+
+  // Try UseEffect to trigger the fetch on each keystroke
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -20,9 +22,8 @@ const Search = ({ onSearchChange }) => {
   // }, [search]);
 
   // console.log(loadOptions);
-  // Try UseEffect to trigger the fetch on each keystroke
 
-  const loadOptions = async (inputValue) => {
+  const fetchData = async (inputValue) => {
     try {
       const response = await fetch(
         `http://localhost:8000/search/${inputValue}`
@@ -34,13 +35,20 @@ const Search = ({ onSearchChange }) => {
     }
   };
 
+  const loadOptions = async (inputValue) => {
+    return fetchData(inputValue);
+  };
+
+  // *** JS STYLING *** //
+
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
       backgroundColor: 'none',
       borderBottom: '1px solid pink',
-      color: state.isSelected ? 'pink' : 'white',
+      color: state.isSelected ? 'darkgrey' : '#40487B',
       padding: 8,
+      fontSize: '0.75rem',
     }),
     noOptionsMessage: (defaultStyles) => ({
       ...defaultStyles,
@@ -98,6 +106,7 @@ const Search = ({ onSearchChange }) => {
     <AsyncPaginate
       placeholder='Enter city'
       debounceTimeout={600}
+      defaultValue='tokyo'
       value={search}
       onChange={handleOnChange}
       loadOptions={loadOptions}
