@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json({ extended: false }));
 
 app.get('/', (req, res) => {
-  res.json('hi');
+  res.json('hello world');
 });
 
 // Get lat lon for a givin city
