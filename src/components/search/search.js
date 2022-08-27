@@ -24,14 +24,17 @@ const Search = ({ onSearchChange }) => {
   // console.log(loadOptions);
 
   const fetchData = async (inputValue) => {
-    try {
-      const response = await fetch(
-        `http://localhost:8000/search/${inputValue}`
-      );
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error(error);
+    console.log('this is input value: ' + typeof inputValue);
+    if (inputValue !== '') {
+      try {
+        const response = await fetch(
+          `http://localhost:8000/search/${inputValue}`
+        );
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
@@ -44,11 +47,11 @@ const Search = ({ onSearchChange }) => {
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: 'none',
-      borderBottom: '1px solid pink',
-      color: state.isSelected ? 'darkgrey' : '#40487B',
-      padding: 8,
-      fontSize: '0.75rem',
+      backgroundColor: 'rgba(255, 255, 255, 0.5)',
+      borderBottom: '1px dotted pink',
+      color: state.isSelected ? '#6A3F40' : '#2D1622',
+      padding: 12,
+      fontSize: '0.875rem',
     }),
     noOptionsMessage: (defaultStyles) => ({
       ...defaultStyles,
@@ -59,7 +62,6 @@ const Search = ({ onSearchChange }) => {
         ...defaultStyles,
         color: '#ffffff',
         fontSize: '0.875rem',
-        textAlign: 'center',
       };
     },
     input: (defaultStyles) => ({
@@ -69,21 +71,27 @@ const Search = ({ onSearchChange }) => {
     control: () => ({
       width: 'auto',
       height: 32,
-      display: 'flex',
       padding: '0 1rem',
       margin: '0 1rem',
     }),
-    singleValue: (provided, state) => {
-      const opacity = state.isDisabled ? 0.5 : 1;
-      const transition = 'opacity 300ms';
-      const color = 'color white';
+    singleValue: (provided, state) => ({
+      ...provided,
+      opacity: state.isDisabled ? 0.5 : 1,
+      transition: 'opacity 300ms',
+      color: 'white',
+      padding: '8px',
+      // const opacity = state.isDisabled ? 0.5 : 1;
+      // const transition = 'opacity 300ms';
+      // const color = 'color white';
+      // const padding = 'padding 8';
 
-      return { ...provided, opacity, transition, color };
-    },
+      // return { ...provided, opacity, transition, color, padding };
+    }),
     valueContainer: (defaultStyles) => ({
       ...defaultStyles,
       borderBottom: '1px solid rgba(255,255,255,0.5)',
       textAlign: 'center',
+      padding: '50 0',
     }),
     indicatorSeparator: () => ({
       display: 'none',
@@ -93,9 +101,16 @@ const Search = ({ onSearchChange }) => {
     }),
     menu: (defaultStyles) => ({
       ...defaultStyles,
-      backgroundColor: 'rgba(255,255,255, 0.1)',
+      backgroundColor: 'none',
       border: 'none',
+      borderRadius: 4,
       boxShadow: 'unset',
+      display: 'flex',
+      justifyContent: 'center',
+    }),
+    menuList: (defaultStyles) => ({
+      ...defaultStyles,
+      padding: 0,
     }),
     loadingMessage: (defaultStyles) => ({
       display: 'none',
@@ -106,7 +121,7 @@ const Search = ({ onSearchChange }) => {
     <AsyncPaginate
       placeholder='Enter city'
       debounceTimeout={600}
-      defaultValue='tokyo'
+      // defaultInputValue='tokyo'
       value={search}
       onChange={handleOnChange}
       loadOptions={loadOptions}
