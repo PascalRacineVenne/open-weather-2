@@ -3,6 +3,7 @@ import { AsyncPaginate } from 'react-select-async-paginate';
 
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
+  // const [options, setOptions] = useState(null);
 
   const handleOnChange = (searchData) => {
     setSearch(searchData);
@@ -11,36 +12,74 @@ const Search = ({ onSearchChange }) => {
 
   // Try UseEffect to trigger the fetch on each keystroke
 
-  const loadOptions = async (inputValue) => {
-    try {
-      const response = await fetch(
-        `http://localhost:8000/search/${inputValue}`
-      );
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error(error);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const res = await fetch(`http://localhost:8000/search/${search}`);
+  //     const json = await res.json();
+  //     setLoadOptions(json.hits);
+  //   };
+  //   fetchData();
+  // }, [search]);
+
+  // console.log(loadOptions);
+
+  const fetchData = async (inputValue) => {
+    if (inputValue !== '') {
+      try {
+        const response = await fetch(
+          `http://localhost:8000/search/${inputValue}`
+        );
+        const data = await response.json();
+        // console.log(data);
+        return {
+          ...data,
+        };
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
+
+  const loadOptions = async (inputValue) => {
+    if (inputValue !== '') {
+      console.log('this is input value: ' + inputValue);
+      const result = await fetchData(inputValue);
+      console.log('this is result' + result);
+      console.log(result);
+      return result;
+    } else {
+      return {
+        options: [
+          // {
+          //   value: '0 0',
+          //   label: '',
+          // },
+        ],
+      };
+    }
+  };
+
+  // console.log('this is load options: ' + loadOptions);
+
+  // *** JS STYLING *** //
 
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: 'none',
-      borderBottom: '1px solid pink',
-      color: state.isSelected ? 'pink' : 'white',
-      padding: 8,
+      backgroundColor: 'rgba(255, 255, 255)',
+      color: state.isSelected ? '#6A3F40' : '#2D1622',
+      padding: 12,
+      fontSize: '0.875rem',
+      fontWeight: '600',
     }),
     noOptionsMessage: (defaultStyles) => ({
-      ...defaultStyles,
-      color: 'white',
+      display: 'none',
     }),
     placeholder: (defaultStyles) => {
       return {
         ...defaultStyles,
         color: '#ffffff',
-        fontSize: '0.875rem',
-        textAlign: 'center',
+        fontSize: '1rem',
       };
     },
     input: (defaultStyles) => ({
@@ -50,21 +89,21 @@ const Search = ({ onSearchChange }) => {
     control: () => ({
       width: 'auto',
       height: 32,
-      display: 'flex',
       padding: '0 1rem',
       margin: '0 1rem',
     }),
-    singleValue: (provided, state) => {
-      const opacity = state.isDisabled ? 0.5 : 1;
-      const transition = 'opacity 300ms';
-      const color = 'color white';
-
-      return { ...provided, opacity, transition, color };
-    },
+    singleValue: (provided, state) => ({
+      ...provided,
+      opacity: state.isDisabled ? 0.5 : 1,
+      transition: 'opacity 300ms',
+      color: 'white',
+      padding: '8px',
+    }),
     valueContainer: (defaultStyles) => ({
       ...defaultStyles,
       borderBottom: '1px solid rgba(255,255,255,0.5)',
       textAlign: 'center',
+      padding: '50 0',
     }),
     indicatorSeparator: () => ({
       display: 'none',
@@ -74,9 +113,19 @@ const Search = ({ onSearchChange }) => {
     }),
     menu: (defaultStyles) => ({
       ...defaultStyles,
-      backgroundColor: 'rgba(255,255,255, 0.1)',
+      backgroundColor: 'none',
       border: 'none',
+      borderRadius: 4,
       boxShadow: 'unset',
+      display: 'flex',
+      justifyContent: 'center',
+    }),
+    menuList: (defaultStyles) => ({
+      ...defaultStyles,
+      padding: 0,
+      width: '300px',
+      borderRadius: '4px',
+      boxShadow: '0 3px 3px rgba(0,0,0,0.2)',
     }),
     loadingMessage: (defaultStyles) => ({
       display: 'none',
@@ -87,6 +136,7 @@ const Search = ({ onSearchChange }) => {
     <AsyncPaginate
       placeholder='Enter city'
       debounceTimeout={600}
+      // defaultInputValue='tokyo'
       value={search}
       onChange={handleOnChange}
       loadOptions={loadOptions}

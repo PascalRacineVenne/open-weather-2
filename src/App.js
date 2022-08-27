@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './main.scss';
 
 import Search from './components/search/search.js';
@@ -12,6 +12,7 @@ function App() {
   const [forecast, setForecast] = useState(null);
 
   const handleOnSearchChange = async (searchData) => {
+    // console.log(searchData);
     try {
       const response = await fetch(`http://localhost:8000/weather`, {
         method: 'POST',
@@ -27,6 +28,13 @@ function App() {
       console.log(error.message);
     }
   };
+
+  useEffect(() => {
+    handleOnSearchChange({
+      value: '35.689722222 139.692222222',
+      label: 'Tokyo, JP',
+    });
+  }, []);
 
   return (
     <div className='container'>
