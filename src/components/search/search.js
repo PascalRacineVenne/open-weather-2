@@ -24,14 +24,16 @@ const Search = ({ onSearchChange }) => {
   // console.log(loadOptions);
 
   const fetchData = async (inputValue) => {
-    console.log('this is input value: ' + typeof inputValue);
     if (inputValue !== '') {
       try {
         const response = await fetch(
           `http://localhost:8000/search/${inputValue}`
         );
         const data = await response.json();
-        return data;
+        // console.log(data);
+        return {
+          ...data,
+        };
       } catch (error) {
         console.error(error);
       }
@@ -39,29 +41,45 @@ const Search = ({ onSearchChange }) => {
   };
 
   const loadOptions = async (inputValue) => {
-    return fetchData(inputValue);
+    if (inputValue !== '') {
+      console.log('this is input value: ' + inputValue);
+      const result = await fetchData(inputValue);
+      console.log('this is result' + result);
+      console.log(result);
+      return result;
+    } else {
+      return {
+        options: [
+          // {
+          //   value: '0 0',
+          //   label: '',
+          // },
+        ],
+      };
+    }
   };
+
+  // console.log('this is load options: ' + loadOptions);
 
   // *** JS STYLING *** //
 
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: 'rgba(255, 255, 255, 0.5)',
-      borderBottom: '1px dotted pink',
+      backgroundColor: 'rgba(255, 255, 255)',
       color: state.isSelected ? '#6A3F40' : '#2D1622',
       padding: 12,
       fontSize: '0.875rem',
+      fontWeight: '600',
     }),
     noOptionsMessage: (defaultStyles) => ({
-      ...defaultStyles,
-      color: 'white',
+      display: 'none',
     }),
     placeholder: (defaultStyles) => {
       return {
         ...defaultStyles,
         color: '#ffffff',
-        fontSize: '0.875rem',
+        fontSize: '1rem',
       };
     },
     input: (defaultStyles) => ({
@@ -80,12 +98,6 @@ const Search = ({ onSearchChange }) => {
       transition: 'opacity 300ms',
       color: 'white',
       padding: '8px',
-      // const opacity = state.isDisabled ? 0.5 : 1;
-      // const transition = 'opacity 300ms';
-      // const color = 'color white';
-      // const padding = 'padding 8';
-
-      // return { ...provided, opacity, transition, color, padding };
     }),
     valueContainer: (defaultStyles) => ({
       ...defaultStyles,
@@ -111,6 +123,9 @@ const Search = ({ onSearchChange }) => {
     menuList: (defaultStyles) => ({
       ...defaultStyles,
       padding: 0,
+      width: '300px',
+      borderRadius: '4px',
+      boxShadow: '0 3px 3px rgba(0,0,0,0.2)',
     }),
     loadingMessage: (defaultStyles) => ({
       display: 'none',
