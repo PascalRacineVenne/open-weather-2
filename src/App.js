@@ -12,7 +12,6 @@ function App() {
   const [forecast, setForecast] = useState(null);
 
   const handleOnSearchChange = async (searchData) => {
-    // console.log(searchData);
     try {
       const response = await fetch(`http://localhost:8000/weather`, {
         method: 'POST',
