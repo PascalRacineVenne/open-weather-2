@@ -14,6 +14,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(cors());
 app.use(express.json({ extended: false }));
 
+// from create react app doc for deployement
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
