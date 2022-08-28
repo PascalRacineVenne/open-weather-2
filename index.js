@@ -20,7 +20,6 @@ app.get('/*', (req, res) => {
 });
 
 // Get lat lon for a givin city
-
 app.get('/search/:city', async (req, res) => {
   const cityInfos = await fetchGeo(req.params);
   res.json(cityInfos);
