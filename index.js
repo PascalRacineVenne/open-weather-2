@@ -12,7 +12,6 @@ const app = express();
 app.use(cors());
 app.use(express.json({ extended: false }));
 
-// from create react app doc for deployement
 app.get('/', (req, res) => {
   res.json('hello server');
 });
