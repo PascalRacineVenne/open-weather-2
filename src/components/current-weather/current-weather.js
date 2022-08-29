@@ -10,6 +10,7 @@ const CurrentWeather = ({ data }) => {
   return (
     <div className='weather'>
       <div className='top'>
+        <p className='city'>{data.city}</p>
         <img src={`icons/${icon}.png`} alt='weather' className='weather-icon' />
         <p className='weather-description'>{description}</p>
         <p className='temperature'>{Math.round(temp)}°</p>

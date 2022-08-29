@@ -1,12 +1,30 @@
+// .forecast-container {
+//   display: flex;
+//   flex-direction: column;
+// }
+
 .forecast {
   display: flex;
   justify-content: space-around;
+  max-width: 900px;
+  flex: 1;
+  margin: 0 auto;
 }
 
 .daily {
   font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  padding-left: 4%;
+  text-align: center;
+  @include devices(desktop) {
+    text-align: unset;
+    display: none;
+  }
+  @include devices(tablet) {
+    text-align: unset;
+    display: none;
+  }
 }
 
 .daily-item {
@@ -80,26 +98,4 @@
     font-size: 0.75rem;
     font-weight: 300;
   }
-}
-
-.daily-details-grid {
-  // display: grid;
-  // grid-template-columns: auto auto;
-  gap: 0 1rem;
-  flex: 1 1;
-  padding: 0.25rem 1rem;
-}
-
-.daily-details-grid-items {
-  // display: flex;
-  // justify-content: space-between;
-  // align-items: center;
-  height: 1.875rem;
-}
-
-.daily-details-grid-items label:first-child {
-  color: #757575;
-}
-.daily-details-grid-items label:last-child {
-  color: #212121;
 }
