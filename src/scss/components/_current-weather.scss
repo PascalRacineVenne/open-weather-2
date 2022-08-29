@@ -30,6 +30,16 @@
   align-items: center;
 }
 
+.city {
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 91.6%;
+  margin: 0;
+  @include devices(mobile) {
+    display: none;
+  }
+}
+
 .weather-description {
   font-weight: 400;
   font-size: 0, 875rem;

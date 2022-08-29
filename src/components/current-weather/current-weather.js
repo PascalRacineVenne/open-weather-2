@@ -3,6 +3,7 @@ import wind from '../../images/wind-2.png';
 import humid from '../../images/humidity.png';
 
 const CurrentWeather = ({ data }) => {
+  console.log(data);
   const { description, icon } = data.weather[0];
   const { feels_like, humidity, temp } = data.main;
   const { speed } = data.wind;
@@ -10,6 +11,7 @@ const CurrentWeather = ({ data }) => {
   return (
     <div className='weather'>
       <div className='top'>
+        <p className='city'>{data.city}</p>
         <img src={`icons/${icon}.png`} alt='weather' className='weather-icon' />
         <p className='weather-description'>{description}</p>
         <p className='temperature'>{Math.round(temp)}°</p>

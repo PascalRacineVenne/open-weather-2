@@ -11,10 +11,15 @@ const Forecast = ({ data }) => {
   );
 
   const multipleDays = data.list;
+  const { name, country } = data.city;
+  console.log(name + country);
 
   return (
-    <>
-      <h3 className='daily'>Daily</h3>
+    <div className='forecast-container'>
+      <h3 className='daily'>
+        {' '}
+        {name}, {country} Daily
+      </h3>
 
       <div className='forecast'>
         {multipleDays.splice(0, 7).map((day, index) => (
@@ -38,7 +43,7 @@ const Forecast = ({ data }) => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
