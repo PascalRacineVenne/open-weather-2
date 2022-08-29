@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
 import dotenv from 'dotenv';
 import { fetchGeo } from './utils/fetchGeo.js';
 import { fetchWeather } from './utils/fetchWeather.js';
@@ -12,10 +13,6 @@ const app = express();
 app.use(cors());
 app.use(express.json({ extended: false }));
 
-app.get('/', (req, res) => {
-  res.json('hello server');
-});
-
 // Get lat lon for a givin city
 app.get('/search/:city', async (req, res) => {
   const cityInfos = await fetchGeo(req.params);
@@ -27,6 +24,16 @@ app.post('/weather', async (req, res) => {
   const weatherInfos = await fetchWeather(req.body);
   res.json(weatherInfos);
 });
+
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  // set static folder
+  app.use(express.static('build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+  });
+}
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
