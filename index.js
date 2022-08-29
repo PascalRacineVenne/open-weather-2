@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json({ extended: false }));
 
-// Get lat lon for a givin city
+// Get lat && lon for a givin city
 app.get('/search/:city', async (req, res) => {
   const cityInfos = await fetchGeo(req.params);
   res.json(cityInfos);
