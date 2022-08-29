@@ -62,7 +62,7 @@ const Search = ({ onSearchChange }) => {
       color: '#fff',
     }),
     control: () => ({
-      width: 'auto',
+      width: '320px',
       height: 32,
       padding: '0 1rem',
       margin: '0 1rem',
