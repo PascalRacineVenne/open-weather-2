@@ -21,10 +21,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node index.js",
     "server": "nodemon index.js",
-    "client": "react-scripts start --prefix client",
+    "client": "react-scripts start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node index.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test",
