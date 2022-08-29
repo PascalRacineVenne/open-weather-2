@@ -1,12 +1,14 @@
-.forecast-container {
-  display: flex;
-  flex-direction: column;
-}
+// .forecast-container {
+//   display: flex;
+//   flex-direction: column;
+// }
 
 .forecast {
   display: flex;
   justify-content: space-around;
+  max-width: 900px;
   flex: 1;
+  margin: 0 auto;
 }
 
 .daily {
@@ -17,6 +19,11 @@
   text-align: center;
   @include devices(desktop) {
     text-align: unset;
+    display: none;
+  }
+  @include devices(tablet) {
+    text-align: unset;
+    display: none;
   }
 }
 

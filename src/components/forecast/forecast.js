@@ -12,12 +12,10 @@ const Forecast = ({ data }) => {
 
   const multipleDays = data.list;
   const { name, country } = data.city;
-  console.log(name + country);
 
   return (
     <div className='forecast-container'>
       <h3 className='daily'>
-        {' '}
         {name}, {country} Daily
       </h3>
 
