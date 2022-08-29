@@ -4,11 +4,7 @@ import Menu from './menu/menu.js';
 const Navbar = () => {
   return (
     <div className='nav'>
-      <p className='title'>
-        <a href='/#' alt='skysearch'>
-          SkySearch
-        </a>
-      </p>
+      <p className='title'>SkySearch</p>
       <Menu />
     </div>
   );

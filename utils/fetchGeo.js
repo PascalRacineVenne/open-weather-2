@@ -1,7 +1,15 @@
 import fetch from 'node-fetch';
-import { geoApiOptions } from '../src/Api/api.js';
+import config from 'config';
+// import { geoApiOptions } from '../src/Api/api.js';
 
 export const fetchGeo = async (query) => {
+  const geoApiOptions = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': config.get('RAPID_API_KEY'),
+      'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com',
+    },
+  };
   try {
     const response = await fetch(
       `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=1000000&namePrefix=${query.city}`,
