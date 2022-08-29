@@ -6,6 +6,8 @@ section {
   height: 96vh;
   padding: 1em;
   border-radius: 12px;
+  display: flex;
+  flex-direction: column;
 }
 
 .current {
@@ -18,4 +20,9 @@ section {
     justify-content: space-around;
     flex-basis: 50%;
   }
+}
+
+.select {
+  display: flex;
+  justify-content: center;
 }
