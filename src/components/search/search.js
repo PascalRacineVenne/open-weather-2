@@ -12,9 +12,7 @@ const Search = ({ onSearchChange }) => {
   const fetchData = async (inputValue) => {
     if (inputValue !== '') {
       try {
-        const response = await fetch(
-          `http://localhost:8000/search/${inputValue}`
-        );
+        const response = await fetch(`/search/${inputValue}`);
         const data = await response.json();
         return {
           ...data,

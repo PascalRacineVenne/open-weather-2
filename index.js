@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import { fileURLToPath } from 'url';
 import path from 'path';
 import dotenv from 'dotenv';
 import { fetchGeo } from './utils/fetchGeo.js';
@@ -26,14 +27,15 @@ app.post('/weather', async (req, res) => {
 });
 
 // Serve static assets in production
-if (process.env.NODE_ENV === 'production') {
-  // set static folder
-  app.use(express.static('build'));
+// set static folder
+app.use(express.static('build'));
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-  });
-}
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

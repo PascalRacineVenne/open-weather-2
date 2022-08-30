@@ -13,7 +13,7 @@ function App() {
 
   const handleOnSearchChange = async (searchData) => {
     try {
-      const response = await fetch(`http://localhost:8000/weather`, {
+      const response = await fetch(`/weather`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
