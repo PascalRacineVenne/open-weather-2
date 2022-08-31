@@ -8,9 +8,9 @@ This project is currently in production. Users can filter tweets by username and
 
 Access the final product with [SkySearch](https://tranquil-brushlands-65303.herokuapp.com/).
 
-![skySearch for phone](public/ref/sky_search_phone.png){width=150}
+![skySearch for phone](public/ref/sky_search_phone.png | width=150)
 
-![skySearch for tablet](public/ref/sky_search_tablet.png){width=450}
+![skySearch for tablet](public/ref/sky_search_tablet.png | width=450)
 
 ## Available Scripts
 
