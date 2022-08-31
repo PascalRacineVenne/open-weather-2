@@ -1,72 +1,39 @@
-# Getting Started with Create React App
+# Sky Search
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An application used to fetxh data from 2 API's and display current weather and forecast for a given city, built with React, JavaScript, SASS, Node & Express.
 
-Access the final product with [SkySearch](https://sky-searcher.herokuapp.com/).
+## Project Status
+This project is currently in production. Users can filter tweets by username and keyword and see visual data representation. Functionality to sort by additional parameters is in progress.
+
+Access the final product with [SkySearch](https://tranquil-brushlands-65303.herokuapp.com/).
+
+![skySearch for phone](https://www.dropbox.com/s/c1p8657f9bkommy/sky_search_phone.png?dl=0)
+
+![skySearch for tablet](https://www.dropbox.com/s/nhf5ltgaw2kqyhe/sky_search_tablet.png?dl=0)
 
 ## Available Scripts
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
 
-In the project directory, you can run:
+Installation:
 
-### `npm start`
+`npm install`  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To Start Server and Client at once:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`npm run dev`  
 
-### `npm test`
+To Visit App:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`localhost:3000/`  
 
-### `npm run build`
+## Reflection
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  + The purpose of this project was to implement API calls and display the results in a fully responsive environment. 
+  + My intend was to build a simple weather app that I would design and programmed.
+  + The challenging part of it was diving deeper into SASS to make it fully responsive, tackling many media queries.
+  + Obstacle wise, It was more challenging then expected to style properly the REACT-SELECT drop-down, but I made it ;-)
+  + I used create-react-app as a starting point for the app and use Node.js && ExpresJs to manage the back-end.
+    Used Rapid API GeoDBCities to fetch cities latitude and longitude
+    Used Openweather API to fetch current weather and forecast for givin city.
+  + SASS integration I getting better and better, I will refactor it to take advantage of all of SASS superpowers.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
