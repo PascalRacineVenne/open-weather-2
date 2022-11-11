@@ -4,7 +4,7 @@ An application used to fetch data from 2 API's and display current weather and f
 
 ## Project Status
 
-This project is currently in production. Users can filter tweets by username and keyword and see visual data representation. Functionality to sort by additional parameters is in progress.
+This project is currently in production. Users can search by city name in order to get current weather and a forecast for the next few days.
 
 Access the final product with [SkySearch](https://tranquil-brushlands-65303.herokuapp.com/).
 
